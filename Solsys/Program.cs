@@ -22,9 +22,12 @@ namespace Solsys
             }
 
             Console.WriteLine($"3.1: {bolygok.Count} bolygó van a rendszerben");
+
             var f2 = bolygok.Average(b => b.HoldakSzama);
             Console.WriteLine($"3.2: A naprendszerben egy bolygónak átlagosan {f2:0.00} holdja van");
-            var f3 = bolygok.OrderBy(b => b.TerfogatArany).Last();
+
+            var f3Max = bolygok.Max(b => b.TerfogatArany);
+            var f3 = bolygok.SingleOrDefault(b=> b.TerfogatArany == f3Max);
             Console.WriteLine($"3.3 a legnagyobb bolygó a {f3.Nev}");
 
             Console.Write($"3.4 írd be a keresett bolygó nevét: ");
